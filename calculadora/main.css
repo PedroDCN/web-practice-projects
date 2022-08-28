@@ -1,0 +1,121 @@
+
+:root {
+    --bg-color: #0C0F24;
+    --btn-bg-color: #433F46;
+    --btn-bg-color-alt: #B69A0B;
+    --btn-bg-color-alt2: #B69A0B;
+    --btn-highlight: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    font-family: monospace;
+    background-color: lightblue;
+}
+
+#calculator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-width: 250px;
+    width: 80%;
+    max-width: 350px;
+    height: 650px;
+    border-radius: 2rem;
+    overflow: hidden;
+    padding: .5rem .25rem;
+    background-color: var(--bg-color);
+    transition: background-color 150ms ease-in;
+}
+
+.calculator__display {
+    position: relative;
+    width: 100%;
+    height: 30%;
+    color: #fff;
+}
+
+.calculator__value {
+    position: absolute;
+    bottom: 3%;
+    right: 0;
+    padding-right: 1.5rem;
+    max-width: 100%;
+    font-size: 2.4rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.calculator__previous-value {
+    position: absolute;
+    display: inline-block;
+    bottom: 3rem;
+    right: 0;
+    padding-right: 1.5rem;
+    max-width: 100%;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.calculator__number-pad {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    height: 70%;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.calculator__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    font-size: 2rem;
+    color: #fff;
+    background-color: var(--btn-bg-color);
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 150ms ease-in, color 150ms ease-in;
+}
+
+.calculator__button > * {
+    pointer-events: none;
+}
+
+.calculator__button:hover {
+    opacity: 0.75;
+}
+
+.calculator__button:focus {
+    outline: 3px solid var(--btn-highlight);
+}
+
+.calculator__button--operation {
+    color: var(--btn-bg-color);
+    background-color: var(--btn-bg-color-alt);
+}
+
+.calculadora__button--large {
+    grid-column: 1 / span 2;
+}
+
+.calculator__button--alt {
+    color: #fff;
+    background-color: var(--btn-bg-color-alt2);
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="main.css">
+    <script type="module" src="calculadora.js"></script>
+</head>
+<body>
+
+    <div id="calculator" data-js="calculator">
+        <div class="calculator__display" data-js="calculator-display">
+            <p class="calculator__previous-value" data-js="calculator-previous-value"></p>
+            <p class="calculator__value" data-js="calculator-display-value">0</p>
+        </div>
+        <div class="calculator__number-pad" data-js="calculator-number-pad">
+            <button class="calculator__button calculator__button--operation" data-operation="clear">C</button>
+            <button class="calculator__button calculator__button--operation" data-operation="invert">&plusmn;</button>
+            <button class="calculator__button calculator__button--operation" data-operation="remove">&lt;</button>
+            <button class="calculator__button calculator__button--operation" data-operation="divide">&percnt;</button>
+            <button class="calculator__button" data-number="7">7</button>
+            <button class="calculator__button" data-number="8">8</button>
+            <button class="calculator__button" data-number="9">9</button>
+            <button class="calculator__button calculator__button--operation" data-operation="multiply">&times;</button>
+            <button class="calculator__button" data-number="4">4</button>
+            <button class="calculator__button" data-number="5">5</button>
+            <button class="calculator__button" data-number="6">6</button>
+            <button class="calculator__button calculator__button--operation" data-operation="subtract">&minus;</button>
+            <button class="calculator__button" data-number="1">1</button>
+            <button class="calculator__button" data-number="2">2</button>
+            <button class="calculator__button" data-number="3">3</button>
+            <button class="calculator__button calculator__button--operation" data-operation="sum">&plus;</button>
+            <button class="calculator__button calculadora__button--large" data-number="0">0</button>
+            <button class="calculator__button" data-number=".">.</button>
+            <button class="calculator__button calculator__button--operation calculator__button--alt" data-operation="evaluate">&equals;</button>
+        </div>
+    </div>
+
+</body>
+</html>
