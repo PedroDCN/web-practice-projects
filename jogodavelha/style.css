@@ -1,0 +1,240 @@
+/* Google Fonts - Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --game-size: min(85%, 600px);
+    --player-1-color: #0f0b1e;
+    --player-2-color: #ed3955;
+}
+
+html, body {
+    height: 100%;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+}
+
+.absolute-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.btn {
+    padding: 5px 10px;
+    border: 2px black dashed;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.start-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    text-align: center;
+    background: #eee;
+    visibility: hidden;
+}
+
+.start-screen.animation {
+    animation: moveUp 700ms ease forwards;
+}
+
+@keyframes moveUp {
+    0% {
+        top: 0;
+    }
+    100% {
+        top: -100%;
+    }
+}
+
+.start-screen > h1 {
+    font-size: 8rem;
+}
+
+.btn--start {
+    border-width: 5px;
+    font-size: 5rem;
+    background: transparent;
+}
+
+.modal {
+    display: flex;
+    visibility: hidden;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: rgba(238, 238, 238, 0.7);
+    backdrop-filter: blur(7.8px);
+    -webkit-backdrop-filter: blur(7.8px);
+    opacity: 0;
+}
+
+.modal__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 500px;
+    margin: 10%;
+    padding: 40px 0;
+    opacity: 0;
+    background-color: #b7b7b7;
+}
+
+.modal__player {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 150px;
+}
+
+.modal__player > * {
+    display: grid;
+    place-items: center;
+    width: 200px;
+    height: 200px;
+}
+
+.modal.animation {
+    animation: fadeIn 800ms 300ms ease forwards;
+}
+
+.modal__content.animation {
+    animation: show-content 600ms 1.2s ease-out forwards;
+}
+
+.btn--restart {
+    font-size: 1.5em;
+    font-weight: bold;
+    transition: transform 150ms linear;
+}
+
+.btn--restart:hover {
+   transform: scale(1.05);
+}
+
+@keyframes show-content {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.container {
+    display: grid;
+    place-items: center;
+    height: 100%;
+    visibility: hidden;
+}
+
+.game {
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    place-items: center;
+    min-width: 280px;
+    width: var(--game-size);
+    height: auto;
+    aspect-ratio: 1 / 1;
+}
+
+.game__square {
+    opacity: 0;
+    display: grid;
+    place-items: center;
+    width: 90%;
+    height: 90%;
+    background: #d5d5d5;
+    transition: transform 80ms ease-in-out, background-color 100ms ease-in-out;
+}
+
+.game:not(.animation) .game__square:not(.disabled):empty:hover {
+    cursor: pointer;
+    transform: scale(1.07);
+    background: #b7b7b7;
+}
+
+.game.animation .game__square {
+    animation: fadeIn 700ms ease forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.circle {
+    width: 65%;
+    height: 65%;
+    border: 15px solid #a6a6a6;
+    border-radius: 50%;
+}
+
+.cross {
+    display: grid;
+    place-items: center;
+    position: relative;
+    width: 65%;
+    height: 65%;
+}
+
+.cross:before, .cross:after {
+    position: absolute;
+    content: '';
+    width: 15px;
+    height: 100%;
+    border-radius: 5px;
+    background-color: #a6a6a6;
+}
+
+.cross:before {
+    transform: rotateZ(45deg);
+}
+
+.cross:after {
+    transform: rotateZ(-45deg);
+}
+
+.circle.player1 {
+    border-color: var(--player-1-color, blue);
+}
+
+.circle.player2 {
+    border-color: var(--player-2-color, red);
+}
+
+.cross.player1:before, .cross.player1:after {
+    background-color: var(--player-1-color, blue);
+}
+
+.cross.player2:before, .cross.player2:after {
+    background-color: var(--player-2-color, red);
+}
+
+.show {
+    visibility: visible;
+}

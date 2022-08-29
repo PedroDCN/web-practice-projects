@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="jogodavelha.js"></script>
+</head>
+<body>
+
+    <div class="start-screen absolute-container show" data-js="start-screen">
+        <h1>Tic Tac Toe</h1>
+        <button class="btn btn--start" data-js="start-btn">START</button>
+    </div>
+
+    <div class="container" data-js="game-container">
+        <div class="game" data-js="tictactoe">
+            <div class="game__square" data-square="1"></div>
+            <div class="game__square" data-square="2"></div>
+            <div class="game__square" data-square="3"></div>
+            <div class="game__square" data-square="4"></div>
+            <div class="game__square" data-square="5"></div>
+            <div class="game__square" data-square="6"></div>
+            <div class="game__square" data-square="7"></div>
+            <div class="game__square" data-square="8"></div>
+            <div class="game__square" data-square="9"></div>
+        </div>
+    </div>
+
+    <div class="modal absolute-container" data-js="end-screen">
+        <div class="modal__content">
+            <h2 class="modal__title" data-js="modal-title"></h2>
+            <div class="modal__player" data-js="modal-player"></div>
+            <button class="btn btn--restart" data-js="restart-btn">PLAY AGAIN</button>
+        </div>
+    </div>
+
+</body>
+</html>
